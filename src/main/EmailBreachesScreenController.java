@@ -53,7 +53,9 @@ public class EmailBreachesScreenController {
 
     private void displayBreach() {
         Breach currentBreach = breaches.get(currentBreachIndex);
-        String currentBreachText = currentBreach.toString();
+        //remember to add getPwnCount()
+        String currentBreachText = String.format("%s%n%s%n%d%n%s",currentBreach.getName(),currentBreach.getBreachDate(), 
+        currentBreach.getPwnCount(),currentBreach.getDescription());
         emailBreachesLabel.setText(currentBreachText);
     }
 }
