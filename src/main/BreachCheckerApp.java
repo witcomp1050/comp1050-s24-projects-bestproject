@@ -5,6 +5,8 @@ package main;
 import java.util.Scanner;
 import java.util.List;
 
+
+//this is just for testing should be removed in the end
 public class BreachCheckerApp {
     
     public static void main(String[] args) {
