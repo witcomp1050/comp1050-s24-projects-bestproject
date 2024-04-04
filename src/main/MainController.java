@@ -109,6 +109,7 @@ public class MainController extends Application implements Initializable {
         passwordStrengthCheckButton.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/PasswordStrengthCheckScreen.fxml"));
+                loader.setController(new main.PasswordStrengthCheckScreenController());
                 Parent root = loader.load();
                 
                 Scene scene = new Scene(root);
