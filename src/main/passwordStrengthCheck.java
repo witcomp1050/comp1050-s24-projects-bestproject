@@ -3,7 +3,7 @@ package main;
 
 public class passwordStrengthCheck {
 	
-	// password must contain at least 8 characters
+	// password must contain at least 8 characters and no more than 64 characters
 	// password must contain at least 1 uppercase letter		
 	// password must contain at least 1 lowercase letter
 	// password must contain at least 1 number
@@ -15,7 +15,7 @@ public class passwordStrengthCheck {
 	    boolean number = false;
 	    boolean length = false;
 	    for(int i = 0; i < password.length(); i++) {
-	    	if (password.length() >= 8) {
+	    	if ((password.length() >= 8) && (password.length() <= 64)) {
 	    		length = true;
 	    	}
 	        ch = password.charAt(i);
