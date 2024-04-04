@@ -67,6 +67,7 @@ public class MainController extends Application implements Initializable {
         emailBreachesButton.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/EmailBreachesScreen.fxml"));
+                loader.setController(new main.EmailBreachesScreenController());
                 Parent root = loader.load();
                 
                 Scene scene = new Scene(root);
