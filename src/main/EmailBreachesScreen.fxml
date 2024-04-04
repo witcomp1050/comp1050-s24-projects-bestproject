@@ -24,12 +24,12 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Label fx:id="emailBreachesLabel" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="53.0" layoutY="222.0" prefHeight="145.0" prefWidth="459.0">
+      <Label fx:id="emailBreachesLabel" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="53.0" layoutY="222.0" prefHeight="145.0" prefWidth="459.0" wrapText="true">
          <font>
             <Font name="Times New Roman" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="generateBreachButton" layoutX="322.0" layoutY="188.0" mnemonicParsing="false"  onAction="#emailBreachesButtonClicked" text="Generate Breaches" />
-      <Button fx:id="nextBreachButton" layoutX="491.0" layoutY="188.0" mnemonicParsing="false"  onAction="#nextBreachButtonClicked" text="Next Breach" />
+      <Button fx:id="generateBreachButton" layoutX="322.0" layoutY="188.0" mnemonicParsing="false" text="Generate Breaches" />
+      <Button fx:id="nextBreachButton" layoutX="491.0" layoutY="188.0" mnemonicParsing="false" text="Next Breach" />
    </children>
 </Pane>
