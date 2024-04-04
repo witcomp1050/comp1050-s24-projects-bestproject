@@ -53,7 +53,7 @@ public class EmailBreachesScreenController {
 
     private void displayBreach() {
         Breach currentBreach = breaches.get(currentBreachIndex);
-        String currentBreachText = currentBreach.getDescription();
+        String currentBreachText = currentBreach.toString();
         emailBreachesLabel.setText(currentBreachText);
     }
 }
