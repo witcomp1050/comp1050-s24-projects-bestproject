@@ -39,7 +39,9 @@ public class Breach {
     
     //get methods for acessing breach details
     public String getName() { return name; }
+    //dont use the one below
     public String getTitle() { return title; }
+    //dont use the one below
     public String getDomain() { return domain; }
     public String getBreachDate() { return breachDate; }
     public long getPwnCount() { return pwnCount; }

@@ -1,5 +1,5 @@
-package application;
-
+package main;
+// food
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,7 +46,7 @@ public class MainController extends Application implements Initializable {
     @Override
     public void start(Stage primaryStage) throws IOException {
         MainController.primaryStage = primaryStage;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Comp1050Project.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Comp1050Project.fxml"));
         loader.setController(this); 
         Pane p = loader.load();
         primaryStage.setScene(new Scene(p));
@@ -66,7 +66,7 @@ public class MainController extends Application implements Initializable {
     	
         emailBreachesButton.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/EmailBreachesScreen.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/EmailBreachesScreen.fxml"));
                 Parent root = loader.load();
                 
                 Scene scene = new Scene(root);
@@ -86,11 +86,9 @@ public class MainController extends Application implements Initializable {
     	 */
         passwordGeneratorButton.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/PasswordGeneratorScreen.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/PasswordGeneratorScreen.fxml"));
+                loader.setController(new main.PasswordGeneratorScreenController()); // Set the controller
                 Parent root = loader.load();
-
-                // Get the controller instance
-                PasswordGeneratorScreenController controller = loader.getController();
 
                 Scene scene = new Scene(root);
 
@@ -109,7 +107,7 @@ public class MainController extends Application implements Initializable {
     	 */
         passwordStrengthCheckButton.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/PasswordStrengthCheckScreen.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/PasswordStrengthCheckScreen.fxml"));
                 Parent root = loader.load();
                 
                 Scene scene = new Scene(root);
@@ -130,7 +128,7 @@ public class MainController extends Application implements Initializable {
      */
     public static void showMainScreen() {
         try {
-            FXMLLoader loader = new FXMLLoader(MainController.class.getResource("/application/Comp1050Project.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainController.class.getResource("/main/Comp1050Project.fxml"));
             Parent root = loader.load();
             
             Scene scene = new Scene(root);
