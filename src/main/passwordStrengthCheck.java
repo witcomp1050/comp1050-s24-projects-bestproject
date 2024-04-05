@@ -19,7 +19,7 @@ public class passwordStrengthCheck {
 	    boolean number = false;
 	    boolean length = false;
 	    String strongPassword = "Your password meets NIST standards";
-	    String weakPassword = "Your password does not meet NIST standards";
+	    String weakPassword = "Your password does not meet NIST standards because";
 
 	    // Check password characteristics
 	    if (password.length() >= 8 && password.length() <= 64) {
@@ -30,9 +30,11 @@ public class passwordStrengthCheck {
 	        char ch = password.charAt(i);
 	        if (Character.isDigit(ch)) {
 	            number = true;
-	        } else if (Character.isUpperCase(ch)) {
+	        } 
+	        else if (Character.isUpperCase(ch)) {
 	            upperCaseLetter = true;
-	        } else if (Character.isLowerCase(ch)) {
+	        } 
+	        else if (Character.isLowerCase(ch)) {
 	            lowerCaseLetter = true;
 	        }
 	    }
@@ -41,6 +43,18 @@ public class passwordStrengthCheck {
 	    if (length && number && upperCaseLetter && lowerCaseLetter) {
 	        return strongPassword;
 	    } else {
+	        if (!length) {
+	        	weakPassword = weakPassword + ", password must be between 8 and 64 characters";
+	        }
+	        if (!number) {
+	        	weakPassword = weakPassword + ", password must contain at least 1 number";
+	        }
+	        if (!upperCaseLetter) {
+	        	weakPassword = weakPassword + ", password must contain at least 1 uppercase letter";
+	        }
+	        if (!lowerCaseLetter) {
+	        	weakPassword = weakPassword + ", password must contain at least 1 lowercase letter";
+	        }
 	        return weakPassword;
 	    }
 	}
