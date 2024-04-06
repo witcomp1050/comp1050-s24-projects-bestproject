@@ -23,7 +23,8 @@ public class PasswordGeneratorScreenController {
     private Label generatedPasswordLabel;
     @FXML
     private Button backButtonPassGen;
-
+    
+    private String password = "";
 
 
     @FXML
@@ -36,21 +37,26 @@ public class PasswordGeneratorScreenController {
         int length = Integer.parseInt(lengthTextField.getText());
 
         // Generate password using the passwordGenerator class
-        String password = passwordGenerator.generatePassword(wantsUpperCase, wantsLowerCase,
+        password = passwordGenerator.generatePassword(wantsUpperCase, wantsLowerCase,
                 wantsNumbers, wantsSpecialCharacters, length);
 
         // Set the generated password to the Label
         generatedPasswordLabel.setText(password);
        
-        Clipboard clipboard = Clipboard.getSystemClipboard();
-        ClipboardContent content = new ClipboardContent();
-        content.putString(password);
-        clipboard.setContent(content);
+        
     }
 
     @FXML
     private void backButtonClicked() {
         ScreenSwitcher.switchScreen("/main/Comp1050Project.fxml", new MainController());
+    }
+    
+    @FXML
+    private void copyToClipboardButtonClicked() {
+    	Clipboard clipboard = Clipboard.getSystemClipboard();
+        ClipboardContent content = new ClipboardContent();
+        content.putString(password);
+        clipboard.setContent(content);
     }
 }
 
