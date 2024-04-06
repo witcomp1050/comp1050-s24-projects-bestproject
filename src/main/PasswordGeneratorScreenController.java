@@ -1,41 +1,30 @@
 package main;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import javafx.stage.Stage;
-import javafx.scene.control.Label;
 
 public class PasswordGeneratorScreenController {
-
     @FXML
     private CheckBox upperCheck;
-
     @FXML
     private CheckBox lowerCheck;
-
     @FXML
     private CheckBox numberCheck;
-
     @FXML
     private CheckBox specialCharCheck;
-
     @FXML
     private TextField lengthTextField;
-
     @FXML
     private Label generatedPasswordLabel;
-    
     @FXML
     private Button backButtonPassGen;
+
+
 
     @FXML
     private void generatePasswordButtonClicked() {
@@ -61,18 +50,8 @@ public class PasswordGeneratorScreenController {
 
     @FXML
     private void backButtonClicked() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Comp1050Project.fxml"));
-            Parent root = loader.load();
-
-            Scene scene = new Scene(root);
-
-            Stage stage = (Stage) backButtonPassGen.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        ScreenSwitcher.switchScreen("/main/Comp1050Project.fxml", new MainController());
     }
-    
 }
+
+
