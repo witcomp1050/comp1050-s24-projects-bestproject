@@ -58,4 +58,8 @@ public class EmailBreachesScreenController {
         currentBreach.getPwnCount(),currentBreach.getDescription());
         emailBreachesLabel.setText(currentBreachText);
     }
+    @FXML
+    private void backButtonClicked() {
+        ScreenSwitcher.switchScreen("/main/Comp1050Project.fxml", new MainController());
+    }
 }

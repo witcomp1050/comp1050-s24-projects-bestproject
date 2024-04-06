@@ -24,6 +24,10 @@ public class PasswordStrengthCheckScreenController {
         // Set the result of checkStrength to the text of the label
         passwordStrengthLabel.setText(passwordStrength);
     }
+    @FXML
+    private void backButtonClicked() {
+        ScreenSwitcher.switchScreen("/main/Comp1050Project.fxml", new MainController());
+    }
  
 
 
