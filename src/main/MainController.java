@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,8 +32,6 @@ public class MainController extends Application implements Initializable {
     @FXML
     private Button passwordStrengthCheckButton;
     
-    private static Stage primaryStage;
-
     /*
      * launches the program
      */
@@ -45,7 +44,6 @@ public class MainController extends Application implements Initializable {
      */
     @Override
     public void start(Stage primaryStage) throws IOException {
-        MainController.primaryStage = primaryStage;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Comp1050Project.fxml"));
         loader.setController(this); 
         Pane p = loader.load();
@@ -59,85 +57,39 @@ public class MainController extends Application implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	
-    	/*
-    	 * when the email button is pressed, new fxml file opens,
-    	 */
-    	
-        emailBreachesButton.setOnAction(event -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/EmailBreachesScreen.fxml"));
-                loader.setController(new main.EmailBreachesScreenController());
-                Parent root = loader.load();
-                
-                Scene scene = new Scene(root);
-                
-                Stage stage = (Stage) emailBreachesButton.getScene().getWindow();
-                
-                stage.setScene(scene);
-                stage.show();
-                
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-
-        /*
-    	 * when the password generator button is pressed, new fxml file opens,
-    	 */
-        passwordGeneratorButton.setOnAction(event -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/PasswordGeneratorScreen.fxml"));
-                loader.setController(new main.PasswordGeneratorScreenController()); // Set the controller
-                Parent root = loader.load();
-
-                Scene scene = new Scene(root);
-
-                Stage stage = (Stage) passwordGeneratorButton.getScene().getWindow();
-
-                stage.setScene(scene);
-                stage.setResizable(false);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        
-        /*
-    	 * when the password strength check button is pressed, new fxml file opens,
-    	 */
-        passwordStrengthCheckButton.setOnAction(event -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/PasswordStrengthCheckScreen.fxml"));
-                loader.setController(new main.PasswordStrengthCheckScreenController());
-                Parent root = loader.load();
-                
-                Scene scene = new Scene(root);
-                
-                Stage stage = (Stage) passwordStrengthCheckButton.getScene().getWindow();
-                
-                stage.setScene(scene);
-                stage.show();
-                
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        
+        emailBreachesButton.setOnAction(event -> loadFXML("/main/EmailBreachesScreen.fxml"));
+        passwordGeneratorButton.setOnAction(event -> loadFXML("/main/PasswordGeneratorScreen.fxml"));
+        passwordStrengthCheckButton.setOnAction(event -> loadFXML("/main/PasswordStrengthCheckScreen.fxml"));
     }
-    /*
-     * reloads the mainScreen for when back buttons are pressed
-     */
-    public static void showMainScreen() {
+
+    private void loadFXML(String fxmlPath) {
         try {
-            FXMLLoader loader = new FXMLLoader(MainController.class.getResource("/main/Comp1050Project.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            loader.setController(getControllerForFXML(fxmlPath));
             Parent root = loader.load();
             
             Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            
+            Stage stage = (Stage) ((Node) emailBreachesButton).getScene().getWindow();
+            
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private Object getControllerForFXML(String fxmlPath) {
+        switch (fxmlPath) {
+            case "/main/EmailBreachesScreen.fxml":
+                return new main.EmailBreachesScreenController();
+            case "/main/PasswordGeneratorScreen.fxml":
+                return new main.PasswordGeneratorScreenController();
+            case "/main/PasswordStrengthCheckScreen.fxml":
+                return new main.PasswordStrengthCheckScreenController();
+            default:
+                throw new IllegalArgumentException("Unknown FXML path: " + fxmlPath);
         }
     }
 }

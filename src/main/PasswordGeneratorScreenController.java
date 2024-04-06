@@ -1,9 +1,16 @@
 package main;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
@@ -45,15 +52,27 @@ public class PasswordGeneratorScreenController {
 
         // Set the generated password to the Label
         generatedPasswordLabel.setText(password);
+       
+        Clipboard clipboard = Clipboard.getSystemClipboard();
+        ClipboardContent content = new ClipboardContent();
+        content.putString(password);
+        clipboard.setContent(content);
     }
+
     @FXML
     private void backButtonClicked() {
-        // Close the current window (Password Generator Screen)
-        Stage stage = (Stage) backButtonPassGen.getScene().getWindow();
-        stage.close();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/Comp1050Project.fxml"));
+            Parent root = loader.load();
 
-        // Show the main screen again
-        MainController.showMainScreen();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) backButtonPassGen.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
+    
 }
