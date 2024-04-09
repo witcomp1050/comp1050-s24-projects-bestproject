@@ -30,7 +30,8 @@ public class MainController extends Application implements Initializable {
     @FXML
     private Button passwordStrengthCheckButton;
 
-    
+    @FXML
+    private Button aboutButton;
     
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -55,6 +56,7 @@ public class MainController extends Application implements Initializable {
         emailBreachesButton.setOnAction(event -> loadFXML("/main/EmailBreachesScreen.fxml", new EmailBreachesScreenController()));
         passwordGeneratorButton.setOnAction(event -> loadFXML("/main/PasswordGeneratorScreen.fxml", new PasswordGeneratorScreenController()));
         passwordStrengthCheckButton.setOnAction(event -> loadFXML("/main/PasswordStrengthCheckScreen.fxml", new PasswordStrengthCheckScreenController()));
+        aboutButton.setOnAction(event -> loadFXML("/main/AboutScreen.fxml", new AboutScreenController()));
     }
 
     /**

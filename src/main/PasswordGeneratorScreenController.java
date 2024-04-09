@@ -51,9 +51,6 @@ public class PasswordGeneratorScreenController extends Controller {
         
     }
 
-    /**
-     * Back button click event.
-     */
     
     
     /**
