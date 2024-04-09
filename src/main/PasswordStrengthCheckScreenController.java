@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 /**
  * Controller class for the password strength check screen.
  */
-public class PasswordStrengthCheckScreenController {
+public class PasswordStrengthCheckScreenController extends Controller {
 
 
     @FXML
@@ -35,15 +35,6 @@ public class PasswordStrengthCheckScreenController {
         passwordStrengthLabel.setText(passwordStrength);
     }
     
-    /**
-     * Back button click event.
-     */
-    @FXML
-    private void backButtonClicked() {
-        // Switch back to the main screen
-        ScreenSwitcher.switchScreen("/main/Comp1050Project.fxml", new MainController());
-    }
- 
-
+   
 
 }
