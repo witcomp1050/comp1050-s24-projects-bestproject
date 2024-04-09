@@ -9,7 +9,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="153.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Breaches" wrappingWidth="294.13677978515625">
+      <Text fill="#2b0f7e" layoutX="153.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Breaches" wrappingWidth="294.13677978515625">
          <font>
             <Font size="42.0" />
          </font>
@@ -31,6 +31,6 @@
       </Label>
       <Button fx:id="generateBreachButton" layoutX="322.0" layoutY="188.0" mnemonicParsing="false" onAction="#emailBreachesButtonClicked" text="Generate Breaches" />
       <Button fx:id="nextBreachButton" layoutX="491.0" layoutY="188.0" mnemonicParsing="false" onAction="#nextBreachButtonClicked" text="Next Breach" />
-      <Button fx:id="backButtonEmailBreach" layoutX="27.0" layoutY="30.0" mnemonicParsing="false" text="Back" onAction="#backButtonClicked"/>
+      <Button fx:id="backButtonEmailBreach" layoutX="27.0" layoutY="30.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back" />
    </children>
 </Pane>
