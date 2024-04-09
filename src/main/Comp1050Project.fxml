@@ -10,9 +10,14 @@
       <Button fx:id="passwordStrengthCheckButton" layoutX="86.0" layoutY="200.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="109.0" text="Password Strength Check" textAlignment="CENTER" wrapText="true" />
       <Button fx:id="emailBreachesButton" layoutX="406.0" layoutY="200.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="109.0" text="Email Breaches" textAlignment="CENTER" />
       <Button fx:id="passwordGeneratorButton" layoutX="246.0" layoutY="200.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="109.0" text="Password Generator" textAlignment="CENTER" wrapText="true" />
-      <Text fx:id="title" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Pal" textAlignment="CENTER" wrappingWidth="600.0000000000001">
+      <Text fx:id="title" fill="#2b0f7e" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password Pal" textAlignment="CENTER" wrappingWidth="600.0000000000001">
          <font>
             <Font size="42.0" />
+         </font>
+      </Text>
+      <Text fill="#696969" layoutX="200.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comp1050 - Final Project">
+         <font>
+            <Font size="18.0" />
          </font>
       </Text>
    </children>
