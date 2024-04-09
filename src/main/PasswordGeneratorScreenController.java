@@ -10,7 +10,7 @@ import javafx.scene.input.ClipboardContent;
 /**
  * Controller class for the password generator screen.
  */
-public class PasswordGeneratorScreenController {
+public class PasswordGeneratorScreenController extends Controller {
     @FXML
     private CheckBox upperCheck;
     @FXML
@@ -54,11 +54,6 @@ public class PasswordGeneratorScreenController {
     /**
      * Back button click event.
      */
-    @FXML
-    private void backButtonClicked() {
-    	//switch back to main screen
-        ScreenSwitcher.switchScreen("/main/Comp1050Project.fxml", new MainController());
-    }
     
     
     /**

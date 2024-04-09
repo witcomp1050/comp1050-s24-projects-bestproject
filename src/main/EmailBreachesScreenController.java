@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 /**
  * Controller class for the email breaches screen.
  */
-public class EmailBreachesScreenController {
+public class EmailBreachesScreenController extends Controller {
 
     @FXML
     private TextField emailBreachesTextField;
@@ -75,12 +75,5 @@ public class EmailBreachesScreenController {
         emailBreachesLabel.setText(currentBreachText);
     }
     
-    /**
-     * Back button click event.
-     */
-    @FXML
-    private void backButtonClicked() {
-    	//switch back to the main screen
-        ScreenSwitcher.switchScreen("/main/Comp1050Project.fxml", new MainController());
-    }
+  
 }

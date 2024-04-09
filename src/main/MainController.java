@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Main controller class responsible for initializing the application and handling navigation between screens.
+ */
 public class MainController extends Application implements Initializable {
 
     @FXML
@@ -27,6 +30,8 @@ public class MainController extends Application implements Initializable {
     @FXML
     private Button passwordStrengthCheckButton;
 
+    
+    
     @Override
     public void start(Stage primaryStage) throws IOException {
         // Set the stage in ScreenSwitcher
@@ -42,6 +47,9 @@ public class MainController extends Application implements Initializable {
         primaryStage.show();
     }
 
+    /**
+     * Initializes the controller.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         emailBreachesButton.setOnAction(event -> loadFXML("/main/EmailBreachesScreen.fxml", new EmailBreachesScreenController()));
@@ -49,6 +57,12 @@ public class MainController extends Application implements Initializable {
         passwordStrengthCheckButton.setOnAction(event -> loadFXML("/main/PasswordStrengthCheckScreen.fxml", new PasswordStrengthCheckScreenController()));
     }
 
+    /**
+     * Loads the specified FXML file with the given controller.
+     *
+     * @param fxmlPath  The path to the FXML file
+     * @param controller The controller associated with the FXML file
+     */
     private void loadFXML(String fxmlPath, Object controller) {
         // Use ScreenSwitcher to switch screens
         ScreenSwitcher.switchScreen(fxmlPath, controller);
