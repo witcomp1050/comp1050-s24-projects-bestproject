@@ -1,6 +1,6 @@
-Comp1050Project README
+Password Pal README
 
-Welcome to the Have I Been Pwned Project! This README will guide you through setting up and accessing the project.
+Welcome to Password Pal! This README will guide you through setting up and accessing the project.
 
 Project Overview:
 
