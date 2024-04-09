@@ -25,7 +25,7 @@ To get started with this project, follow these steps:
 --Explore the project structure:
  Familiarize yourself with the project structure, including source files, resources, and any configuration files.
 
-Usage
+Usage:
 
 To use this project, follow these steps:
 
@@ -33,7 +33,7 @@ To use this project, follow these steps:
 
 --Navigate to HIBPApiService.java, on line 21, enter your API key for the HaveIBeenPwned API.
 
-Contributing
+Contributing:
 
 If you'd like to contribute to this project, follow these steps:
 
@@ -49,6 +49,6 @@ If you'd like to contribute to this project, follow these steps:
 
 --Create a new Pull Request.
 
-License
+License:
 
 --This project is licensed under the MIT License - see the LICENSE.md file for details.
