@@ -1,6 +1,9 @@
 package main;
 
 
+/**
+ *  Class to check the strength of passwords based on NIST standards.
+ */
 public class passwordStrengthCheck {
 	
 	// password must contain at least 8 characters and no more than 64 characters

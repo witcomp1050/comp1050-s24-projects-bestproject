@@ -7,6 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 
+
+
+/**
+ * Controller class for the email breaches screen.
+ */
 public class EmailBreachesScreenController {
 
     @FXML
@@ -15,8 +20,8 @@ public class EmailBreachesScreenController {
     @FXML
     private Label emailBreachesLabel;
     
-    private List<Breach> breaches;
-    private int currentBreachIndex;
+    private List<Breach> breaches; // List to store breaches obtained from API
+    private int currentBreachIndex; //index to keep track of the current breach being displayed
 
     @FXML
     private Button generateBreachButton;
@@ -33,33 +38,49 @@ public class EmailBreachesScreenController {
     private void emailBreachesButtonClicked() {
         // Get the user to input email
         String email = emailBreachesTextField.getText();
-
+        
+        
+        //calls the method that calls the api 
         breaches = HIBPApiService.getBreachesForEmail(email);
 
+        
+        // If breaches are found, display the first breach; otherwise, show a message indicating no breaches were found
         if (!breaches.isEmpty()) {
             displayBreach();
         } else {
             emailBreachesLabel.setText("No breaches found for this email.");
         }
     }
-
+    
+    
+    /**
+     * Next breach button click event.
+     */
     @FXML
     private void nextBreachButtonClicked() {
+        // If breaches are available, cycle to the next breach and display it
         if (!breaches.isEmpty()) {
             currentBreachIndex = (currentBreachIndex + 1) % breaches.size();
             displayBreach();
         }
     }
 
+    /**
+     * Displays the breach information on the label.
+     */
     private void displayBreach() {
         Breach currentBreach = breaches.get(currentBreachIndex);
-        //remember to add getPwnCount()
         String currentBreachText = String.format("Name: %s%nDate: %s%n# of users affected: %d%nDescription: %s",currentBreach.getName(),currentBreach.getBreachDate(), 
         currentBreach.getPwnCount(),currentBreach.getDescription());
         emailBreachesLabel.setText(currentBreachText);
     }
+    
+    /**
+     * Back button click event.
+     */
     @FXML
     private void backButtonClicked() {
+    	//switch back to the main screen
         ScreenSwitcher.switchScreen("/main/Comp1050Project.fxml", new MainController());
     }
 }

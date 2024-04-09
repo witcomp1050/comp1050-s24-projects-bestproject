@@ -7,7 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-
+/**
+ * Controller class for the password generator screen.
+ */
 public class PasswordGeneratorScreenController {
     @FXML
     private CheckBox upperCheck;
@@ -24,9 +26,12 @@ public class PasswordGeneratorScreenController {
     @FXML
     private Button backButtonPassGen;
     
-    private String password = "";
+    private String password = ""; // String to store the generated password
 
 
+    /**
+     * Generate password button click event.
+     */
     @FXML
     private void generatePasswordButtonClicked() {
         // Get the values of each CheckBox and TextField
@@ -46,11 +51,20 @@ public class PasswordGeneratorScreenController {
         
     }
 
+    /**
+     * Back button click event.
+     */
     @FXML
     private void backButtonClicked() {
+    	//switch back to main screen
         ScreenSwitcher.switchScreen("/main/Comp1050Project.fxml", new MainController());
     }
     
+    
+    /**
+     * Copy to clipboard button click event.
+     * Copies the generated password to the clipboard.
+     */
     @FXML
     private void copyToClipboardButtonClicked() {
     	Clipboard clipboard = Clipboard.getSystemClipboard();

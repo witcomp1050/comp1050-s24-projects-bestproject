@@ -4,7 +4,7 @@
 package main;
 import org.jsoup.Jsoup;
 /**
- * 
+ * Class for creating breach objects based on info from the hibp api
  */
 public class Breach {
 	
