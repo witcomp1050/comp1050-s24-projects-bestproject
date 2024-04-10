@@ -26,7 +26,7 @@
       </Text>
       <Label fx:id="emailBreachesLabel" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="53.0" layoutY="222.0" prefHeight="145.0" prefWidth="459.0" wrapText="true">
          <font>
-            <Font name="Times New Roman" size="12.0" />
+            <Font name="Times New Roman" size="11.0" />
          </font>
       </Label>
       <Button fx:id="generateBreachButton" layoutX="322.0" layoutY="188.0" mnemonicParsing="false" onAction="#emailBreachesButtonClicked" text="Generate Breaches" />
