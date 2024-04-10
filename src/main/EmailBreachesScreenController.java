@@ -58,12 +58,19 @@ public class EmailBreachesScreenController extends Controller {
      */
     @FXML
     private void nextBreachButtonClicked() {
-        // If breaches are available, cycle to the next breach and display it
-        if (!breaches.isEmpty()) {
-            currentBreachIndex = (currentBreachIndex + 1) % breaches.size();
-            displayBreach();
+        try {
+            // If breaches are available, cycle to the next breach and display it
+            if (!breaches.isEmpty()) {
+                currentBreachIndex = (currentBreachIndex + 1) % breaches.size();
+                displayBreach();
+            }
+        } catch (NullPointerException e) {
+            // Handle the case where breaches are null
+            // This occurs when the "Next Breach" button is clicked before generating any breaches
+            emailBreachesLabel.setText("No breaches have been generated yet.");
         }
     }
+
 
     /**
      * Displays the breach information on the label.

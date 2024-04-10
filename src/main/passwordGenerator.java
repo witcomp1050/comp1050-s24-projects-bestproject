@@ -14,33 +14,44 @@ public class passwordGenerator {
 		String numbers = "0123456789";
 		String specialCharacters = "!@#$%^&*?";
 		String allChars = "";
-		
+		StringBuilder password = new StringBuilder();
 		// creates randomness
 		Random random = new Random();
 		
 		// creates a string consisting of components user selects
 		if (wantsUpperCase) {
-			allChars += upperCase;
-		}
-		if (wantsLowerCase) {
-			allChars += lowerCase;
-		}			
-		if (wantsNumbers) {
-			allChars += numbers;
-		}			
-		if (wantsSpecialCharacters) {
-			allChars += specialCharacters;
-		}
-		
-		// builds the password string using randomness
-		StringBuilder password = new StringBuilder();
-		for (int i = 0; i < length; i++) {
-			int randomIndex = random.nextInt(allChars.length());
+            allChars += upperCase;
+            password.append(upperCase.charAt(random.nextInt(upperCase.length())));
+        }
+        if (wantsLowerCase) {
+            allChars += lowerCase;
+            password.append(lowerCase.charAt(random.nextInt(lowerCase.length())));
+        }           
+        if (wantsNumbers) {
+            allChars += numbers;
+            password.append(numbers.charAt(random.nextInt(numbers.length())));
+        }           
+        if (wantsSpecialCharacters) {
+            allChars += specialCharacters;
+            password.append(specialCharacters.charAt(random.nextInt(specialCharacters.length())));
+        }
+
+        // Add remaining characters based on the length
+        for (int i = password.length(); i < length; i++) {
+            int randomIndex = random.nextInt(allChars.length());
             password.append(allChars.charAt(randomIndex));
-		}
-		
-		// returns users random password in string form
-		return password.toString();
+        }
+        
+        // Shuffle the generated password for randomness
+        for (int i = password.length() - 1; i > 0; i--) {
+            int index = random.nextInt(i + 1);
+            char temp = password.charAt(index);
+            password.setCharAt(index, password.charAt(i));
+            password.setCharAt(i, temp);
+        }
+
+        // returns users random password in string form
+        return password.toString();
 	
 	}
 }
